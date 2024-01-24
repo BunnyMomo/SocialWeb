@@ -4,31 +4,31 @@
 // ====== CONNECTION DATA ====== //
 // ============================= //
 
-$dbHost = 'localhost';
-$dbUser = 'Ernesto';
-$dbPass = '1234';
-$dbName = 'Test';
+// $dbHost = 'localhost';
+// $dbUser = 'Ernesto';
+// $dbPass = '1234';
+// $dbName = 'Test';
 
 // ========================= //
 // ====== DOTENV TEST ====== //
 // ========================= //
 
-// echo "AVANT";
+echo "AVANT";
 
-// // Charge le fichier .env (qui est dans ton dossier)
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// $dotenv->load();
+// Charge le fichier .env (qui est dans ton dossier)
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-// echo "MILIEU";
+echo "MILIEU";
 
 // Tu crée les variables de ton code en référençant les variables env de .env
-// $dbHost = $_ENV['DB_HOST'];
-// $dbName = $_ENV['DB_NAME'];
-// $dbUser = $_ENV['DB_USER'];
-// $dbPass = $_ENV['DB_PASS'];
+$dbHost = $_ENV['DB_HOST'];
+$dbName = $_ENV['DB_NAME'];
+$dbUser = $_ENV['DB_USER'];
+$dbPass = $_ENV['DB_PASS'];
 
-// echo "APRES";
-// echo $dbHost;
+echo "APRES";
+echo $dbHost;
 
 // ================== //
 // ====== MAIN ====== //
