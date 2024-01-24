@@ -1,0 +1,53 @@
+html, body{
+    margin: 0;
+    height: 100vh;
+    border: 1px solid red;
+}
+
+header{
+    width: 100%;
+    height: 200px;
+    background-color: aqua;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+}
+
+main #mainwrapper{
+    width: 100%;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+main nav{
+    width: 20%;
+    background-color: beige;
+}
+/*Enlever les points du "ul", la liste qui se mettent par défaut*/
+nav ul{
+    list-style: none;
+}
+
+main #content{
+    width: 60%;
+    background-color: red;
+}
+
+main aside{
+    width: 20%;
+    background-color: chocolate;
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    background-color: brown;
+}
+
