@@ -15,6 +15,8 @@
 
 echo "AVANT";
 
+require 'vendor/autoload.php';
+
 // Charge le fichier .env (qui est dans ton dossier)
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
