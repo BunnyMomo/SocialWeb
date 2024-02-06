@@ -1,73 +1,60 @@
-<?php
-
-// ============================= //
-// ====== CONNECTION DATA ====== //
-// ============================= //
-
-$dbHost = 'localhost';
-$dbUser = 'Ernesto';
-$dbPass = '1234';
-$dbName = 'Test';
-
-// ================== //
-// ====== MAIN ====== //
-// ================== //
-
-// Tu crée l'objet de connexion
-$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
-
-// === CONNECTION OBJ === //
-
-$mysqli = @new mysqli(
-  $dbHost,
-  $dbUser,
-  $dbPass,
-  $dbName
-);
-
-// === CHECK CONNECTION ==/
-if ($mysqli->connect_error) {
-  echo 'Errno: ' . $mysqli->connect_errno;
-  echo '<br>';
-  echo 'Error: ' . $mysqli->connect_error;
-  exit();
-}
-
-// === CHECK POST DATA === //
-$username = isset($_POST['username']) ? htmlspecialchars($_POST['username'], ENT_QUOTES, 'UTF-8') : "" ;
-$password = isset($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES, 'UTF-8') : "" ;
-
-$nom = htmlspecialchars($username, ENT_QUOTES, 'UTF-8');
-$motDePasse = htmlspecialchars($password, ENT_QUOTES, 'UTF-8');
-
-if($username == "" || $password == "") {
-  http_response_code(400);
-  echo "Veuillir remplir les champs";
-  exit;
-}
-
-// === WRITE TO DATABASE === //
-$SQL_insert = "INSERT INTO Test (Username, Password) VALUES ('$username', '$password')";
-
-try {  
-  $result = $mysqli->query($SQL_insert);
-  echo "Tout marche";
-} catch (Exception $error) {
-  echo "L'erreur est :" . $error->getMessage() . "\n";
-}
-
-// === READ DATABASE === //
-
-$sql = "SELECT * FROM `Test`";
-$result = $mysqli->query($sql);
-
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
-    echo "id: " . $row["idUser"] . " Username: " . $row["Username"] . " Password: " . $row["Password"] . "</br>";
-  }
-} else {
-  echo "0 results";
-}
-
-// === CLOSE CONNECTION == //
-$mysqli->close();
+<?php include_once "templates/header.php"; ?>
+    
+    <main>
+        <div id="container">
+            <?php include_once "templates/nav.php"; ?>
+            <section>
+                <h1>Signup</h1>
+                <form action="includes/signup.inc.php" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="name" placeholder="John Doe">
+                    <label for="floatingInput">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" name="passwordRepeat" placeholder="Password">
+                    <label for="floatingPassword">Confirm Password</label>
+                </div>
+                <button class="btn btn-primary" name="submit" type="submit">Button</button>
+                </form>
+                <br />
+                <?php
+                if(isset($_GET["error"])) {
+                    if($_GET["error"] == "emptyinput") {
+                        echo "<p>Fill in all fields!</p>";
+                    }
+                    else if($_GET["error"] == "invaliduid") {
+                        echo "<p>Choose a proper username!</p>";
+                    }
+                    else if($_GET["error"] == "invalidemail") {
+                        echo "<p>Choose a proper email!</p>";
+                    }
+                    else if($_GET["error"] == "passwordsdontmatch") {
+                        echo "<p>Passwords don't match!</p>";
+                    }
+                    else if($_GET["error"] == "stmtfailed") {
+                        echo "<p>Something went wrong, try again!</p>";
+                    }
+                    else if($_GET["error"] == "usernametaken") {
+                        echo "<p>Username already taken!</p>";
+                    }
+                    else if($_GET["error"] == "none") {
+                        echo "<p>You have signed up!</p>";
+                    }
+                }
+                ?>
+            </section>
+            <aside></aside>
+        </div>
+    </main>
