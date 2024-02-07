@@ -1,0 +1,138 @@
+/* Utilser des variables css */
+:root {
+    --header-height: 80px;
+    --footer-height: 50px;
+    --nav-width: 200px;
+    --aside-width: 120px;
+}
+
+* {
+    box-sizing: border-box; /* pour mieux gérer la taille des blocs */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #d04040;
+}
+
+header {
+    height: var(--header-height);
+    width: 100%;
+    background-color: #CE5A67;
+    padding: 10px;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+#logo i{
+    /* border: 1px solid blue; */
+    font-size: 2em;
+    color: white;
+}
+
+#logo span {
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+#headerContainer{
+    height: 100%;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+header #menu{
+    /* border: 1px solid white; */
+    display: flex;
+    gap: 20px;
+}
+
+header #menu i {
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+}
+
+header  #menu i:hover{
+    color: grey;
+}
+
+#profilePic{
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-size: cover;
+    margin-left: auto;
+}
+
+#profilePic img{
+    height: auto;
+    width: 40px;
+}
+
+main {
+    /* Ici on utilise calc() pour calculer la hauteur du main */
+    height: calc(100% - var(--header-height) - var(--footer-height));
+    width: 100%;
+}
+
+main #container {
+    display: flex;
+    height: 100%;
+}
+
+main nav {
+    width: var(--nav-width);
+    background-color: #F4BF96;
+}
+
+main nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main nav ul li {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #773f15;
+}
+
+main nav ul li:hover {
+    background-color: #ac5d20;
+    color: #fff;
+}
+
+main nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+main section {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #FCF5ED;
+}
+
+main aside {
+    width: var(--aside-width);
+    background-color: #F4BF96;
+}
+
+footer {
+    height: var(--footer-height);
+    width: 100%;
+    background-color: #8f7272;
+}
