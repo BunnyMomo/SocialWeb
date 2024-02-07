@@ -1,9 +1,9 @@
 <?php
 
 $serverName = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "users";
+$dbUsername = "Ernesto";
+$dbPassword = "1234";
+$dbName = "social_web";
 
 $conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 

@@ -7,7 +7,7 @@ if(isset($_POST['submit'])) {
     $password = $_POST['password'];
     $passwordRepeat = $_POST['passwordRepeat'];
 
-    // require_once 'db/dbh.inc.php';
+    require_once 'db/dbh.inc.php';
     require_once 'functions.inc.php';
 
     // === Error handling === //
