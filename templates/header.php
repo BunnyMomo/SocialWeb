@@ -1,3 +1,7 @@
+<?php
+    // IMPORTANT ! Session has to be started in every file that uses session variables
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +23,11 @@
                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                 <i class="fa fa-desktop" aria-hidden="true"></i>
             </div>
-            <div id="profilePic">
-                <img src="https://picsum.photos/id/237/300/300" alt="profilPic" width="300" height="300">
-            </div>
+            <?php
+                if (isset($_SESSION['useruid'])) {
+                    include_once('templates/profile_pic.php');
+                }
+            ?>
+            
         </div>
     </header>

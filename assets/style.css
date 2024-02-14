@@ -67,13 +67,27 @@ header  #menu i:hover{
     color: grey;
 }
 
+#signupLoginWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    margin: auto;
+}
+
+#profileWrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
 #profilePic{
     overflow: hidden;
     height: 40px;
     width: 40px;
     border-radius: 100%;
     background-size: cover;
-    margin-left: auto;
 }
 
 #profilePic img{

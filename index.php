@@ -1,5 +1,5 @@
 <?php include_once 'templates/header.php'; ?>
-    
+<?php include_once 'includes/redirect_signup.php'; ?>
     <main>
         <div id="container">
             <?php include_once 'templates/nav.php'; ?>
